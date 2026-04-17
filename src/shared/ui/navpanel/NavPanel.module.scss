@@ -1,0 +1,23 @@
+.navPanel {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+  padding-block: 20px;
+  span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    a {
+      color: #111111;
+    }
+    span {
+      color: #111111;
+      cursor: pointer;
+    }
+  }
+  .active {
+    color: #2e6cf4;
+    text-decoration: underline;
+  }
+}

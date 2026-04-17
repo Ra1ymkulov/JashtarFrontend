@@ -1,0 +1,27 @@
+* {
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+  object-fit: cover;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+}
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  footer {
+    margin-top: auto;
+  }
+}
+body {
+  color: #111111;
+  background-color: #ffffff;
+}
+.container {
+  max-width: 1300px;
+  width: 90%;
+  margin-inline: auto;
+}
