@@ -25,3 +25,9 @@ body {
   width: 90%;
   margin-inline: auto;
 }
+button {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  &:active {
+    transform: scale(0.97);
+  }
+}
