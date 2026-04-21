@@ -1,0 +1,29 @@
+.Test {
+	padding: 50px 0;
+	background-color: #f4f4f4;
+	min-height: 100vh;
+}
+
+.content {
+	h2 {
+		margin-bottom: 30px;
+		font-family: sans-serif;
+	}
+}
+
+.testGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	@media (max-width: 920px) {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+	@media (max-width: 680px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 20px;
+	}
+}
