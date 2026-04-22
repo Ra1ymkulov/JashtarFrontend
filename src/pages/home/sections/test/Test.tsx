@@ -22,8 +22,9 @@ export const Test: FC = () => {
 			<div className="container">
 				<div className={scss.content}>
 					<Heading
+						variant="between"
 						title={testDataFromApi.title}
-						description={testDataFromApi.desc}
+						// description={testDataFromApi.desc}
 						buttonText={testDataFromApi.button}
 						href={testDataFromApi.path}
 					/>

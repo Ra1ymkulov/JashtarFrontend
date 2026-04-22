@@ -1,60 +1,49 @@
 .Heading {
-	padding: 32px 0;
-
-	.wrapper {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-end;
-		gap: 20px;
-		padding-bottom: 16px;
-
-		@media (max-width: 768px) {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 12px;
-		}
-	}
-
+	padding-block: 30px;
 	.textContent {
-		max-width: 700px;
-	}
-
-	.title {
-		font-size: clamp(24px, 3vw, 40px);
-		font-weight: 700;
-		line-height: 1.2;
-		color: #111827;
-	}
-
-	.description {
-		margin-top: 8px;
-		font-size: 16px;
-		color: #4b5563;
-		line-height: 1.5;
-	}
-
-	.button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 10px 20px;
-		background: transparent;
-		border: 1px solid #2563eb;
-		color: #2563eb;
-		border-radius: 8px;
-		font-weight: 500;
-		transition: all 0.2s ease;
-		text-decoration: none; // Важно для Link
-		white-space: nowrap;
-		cursor: pointer;
-
-		&:hover {
-			background: #2563eb;
-			color: #fff;
+		.title {
+			font-weight: 600;
+			font-size: clamp(20px, 1vw, 40px);
+			color: #111111;
 		}
+		.description {
+			margin-top: 8px;
+			font-size: clamp(14px, 2vw, 20px);
+			color: #666666;
+		}
+	}
 
-		@media (max-width: 768px) {
-			width: 100%; // Кнопка на всю ширину для удобства нажатия пальцем
+	&.between {
+		flex: 1 1 50%;
+		.wrapper {
+			display: flex;
+			align-items: center;
+			gap: 30px;
+			justify-content: space-between;
+			.actions {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				width: 153px;
+				height: 48px;
+				border-radius: 10px;
+				border: 1px solid #2e6cf4;
+				.button {
+					font-size: clamp(14px, 2vw, 18px);
+					font-weight: 400;
+					color: #2e6cf4;
+				}
+			}
+		}
+	}
+
+	&.center {
+		flex: 1 1 50%;
+		.wrapper {
+			display: flex;
+			justify-content: center;
+			gap: 30px;
 		}
 	}
 }
