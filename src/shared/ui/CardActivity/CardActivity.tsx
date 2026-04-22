@@ -12,7 +12,8 @@ interface cardProps {
   description: string;
   fullText?: string;
   isOpen: boolean;
-  Course: boolean;
+  course: boolean;
+  color?: string;
   onClick: () => void;
 }
 
@@ -23,15 +24,16 @@ export const CardActivity = ({
   fullText,
   isOpen,
   onClick,
-  Course,
+  course,
+  color,
 }: cardProps) => {
   return (
     <div
       className={`${scss.card} ${isOpen ? scss.card_open : ""}  ${
-        Course ? scss.card_course : ""
+        course ? scss.card_course : ""
       }`}
     >
-      {(Course || !isOpen) && image && (
+      {(course || !isOpen) && image && (
         <div className={scss.imageWrapper}>
           <Image src={image} alt="" fill />
         </div>
@@ -47,7 +49,7 @@ export const CardActivity = ({
 
           <p className={`${scss.description} `}>{description}</p>
 
-          {isOpen && !Course && (
+          {isOpen && !course && (
             <div className={scss.fullText}>
               <p className={scss.fullText_paragraph}>{fullText}</p>
             </div>
@@ -55,7 +57,7 @@ export const CardActivity = ({
         </div>
 
         <div className={scss.footer}>
-          {!Course && (
+          {!course && (
             <div className={scss.socials}>
               <div className={scss.icon}>
                 <Image src={Telegram} alt="telegram" width={24} height={24} />
@@ -69,12 +71,12 @@ export const CardActivity = ({
           <button
             className={`${scss.toggleButton} ${
               isOpen ? scss.toggleButton_open : ""
-            }  ${Course ? scss.toggleButton_course : ""}`}
+            }  ${course ? scss.toggleButton_course : ""}`}
             onClick={onClick}
           >
-            <span>{Course ? "Записаться" : isOpen ? "" : "Подробнее"}</span>
+            <span>{course ? "Записаться" : isOpen ? "" : "Подробнее"}</span>
             <span className={scss.arrow}>
-              {Course ? (
+              {course ? (
                 <Image src={ArrowRight} alt="go" width={20} height={20} />
               ) : isOpen ? (
                 <Image src={ArrowUp} alt="close" width={20} height={20} />
