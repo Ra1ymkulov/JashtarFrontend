@@ -1,26 +1,27 @@
-import { Typography } from '../Typography/Typography';
-import { Link } from 'react-router-dom';
-import scss from './CardProject.module.scss';
-import type { CardProps } from '@/shared/types/cardProject/types';
+import Image from "next/image";
+import Link from "next/link";
+import scss from "./CardProject.module.scss";
+import type { CardProps } from "@/src/shared/types/cardProject/types";
 
 export const CardProject = ({ image, title, desc, id }: CardProps) => {
   return (
     <div className={scss.card__container}>
       <div className={scss.ImageWrapper}>
-        <img className={scss.image} src={image} alt='card Image' />
+        <Image
+          src={image}
+          alt="card Image"
+          fill
+          className={scss.image}
+        />
       </div>
 
       <div className={scss.mainContent}>
-        <Typography variant='card_title' weight='600' color='black'>
-          {title}
-        </Typography>
+        <h1 className={scss.title}>{title}</h1>
 
-        <Typography variant='card_title' weight='600' color='black'>
-          {desc}
-        </Typography>
+        <p className={scss.description}>{desc}</p>
 
-        <Link to={`/project/${id}`}>
-          <button className={scss.learnMoreButton}>Узнать больше</button>
+        <Link href={`/projects/${id}`} className={scss.learnMoreButton}>
+          Узнать больше
         </Link>
       </div>
     </div>

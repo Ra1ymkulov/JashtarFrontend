@@ -1,0 +1,149 @@
+.photoGallery {
+  width: 100%;
+  display: flex;
+}
+
+.gallery {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+.p1,
+.p2,
+.p3,
+.p4 {
+  position: relative;
+}
+
+.p1 img,
+.p2 img,
+.p3 img,
+.p4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+
+.gallery_1 {
+  grid-template-columns: 1fr;
+  grid-template-areas: "area1";
+}
+
+.gallery_1 .p1 {
+  grid-area: area1;
+  height: clamp(300px, 40vw, 500px);
+}
+
+
+.gallery_2 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "area1 area2";
+}
+
+.gallery_2 .p1 {
+  grid-area: area1;
+  height: clamp(250px, 28vw, 400px);
+}
+
+.gallery_2 .p2 {
+  grid-area: area2;
+  height: clamp(250px, 28vw, 400px);
+}
+
+.gallery_3 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "area1 area2"
+    "area1 area3";
+}
+
+.gallery_3 .p1 {
+  grid-area: area1;
+  height: clamp(250px, 28vw, 400px);
+}
+
+.gallery_3 .p2 {
+  grid-area: area2;
+  height: clamp(130px, 13vw, 195px);
+}
+
+.gallery_3 .p3 {
+  grid-area: area3;
+  height: clamp(130px, 13vw, 195px);
+}
+
+.gallery_4 {
+  grid-template-columns: 24fr 33fr 42fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "area1 area2 area4"
+    "area1 area3 area4";
+}
+
+.gallery_4 .p1 {
+  grid-area: area1;
+  height: clamp(250px, 25vw, 400px);
+}
+
+.gallery_4 .p2 {
+  grid-area: area2;
+  height: clamp(130px, 13vw, 195px);
+}
+
+.gallery_4 .p3 {
+  grid-area: area3;
+  height: clamp(130px, 13vw, 195px);
+}
+
+.gallery_4 .p4 {
+  grid-area: area4;
+  height: clamp(250px, 25vw, 400px);
+}
+
+
+// @media (max-width: 768px) {
+//   .gallery_3,
+//   .gallery_4 {
+//     grid-template-columns: 1fr 1fr;
+//     grid-template-rows: min-content min-content;
+//     grid-template-areas:
+//       "area2 area3"
+//       "area4 area4";
+//     gap: 12px;
+//   }
+
+//   .gallery_3 .p1,
+//   .gallery_4 .p1 {
+//     display: none;
+//   }
+
+//   .gallery_3 .p2,
+//   .gallery_4 .p2 {
+//     height: clamp(100px, 20vw, 150px);
+//   }
+
+//   .gallery_3 .p3,
+//   .gallery_4 .p3 {
+//     height: clamp(100px, 20vw, 150px);
+//   }
+
+//   .gallery_4 .p4 {
+//     height: clamp(140px, 25vw, 200px);
+//   }
+
+//   .gallery_2 {
+//     grid-template-columns: 1fr;
+//     grid-template-areas:
+//       "area1"
+//       "area2";
+//   }
+
+//   .gallery_2 .p1,
+//   .gallery_2 .p2 {
+//     height: clamp(180px, 40vw, 280px);
+//   }
+// }
