@@ -18,7 +18,7 @@ export const Aim = ({ title, goals = [] }: AimProps) => {
     <section className={styles.goalsBlock}>
       {title && (
         <header className={styles.goalsHeader}>
-          <h2>{title}</h2>
+          <h1>{title}</h1>
         </header>
       )}
 

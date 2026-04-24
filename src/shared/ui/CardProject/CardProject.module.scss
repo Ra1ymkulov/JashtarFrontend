@@ -4,9 +4,7 @@
   max-width: 424px;
   width: 100%;
   height: 100%;
-  border: 4px solid #e5e7eb;
   flex-direction: column;
-  border-radius: 12px;
   overflow: hidden;
   justify-content: center;
   box-sizing: border-box;
@@ -39,11 +37,11 @@
   overflow: hidden;
 }
 .title {
-    min-height: 3em;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-  }
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .learnMoreButton {
   width: 100%;
@@ -54,6 +52,7 @@
   justify-content: center;
   color: white;
   border: none;
+  margin-top: 20px;
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
