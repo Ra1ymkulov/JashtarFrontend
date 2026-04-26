@@ -1,11 +1,20 @@
-import { Typography } from '../Typography/Typography';
+// import { Typography } from '../Typography/Typography';
 import scss from './CardActivity.module.scss';
-import type { cardProps } from '@/shared/types/cardActivity/types';
 import ArrowDown from '@/shared/assets/images/drop down.svg';
 import ArrowUp from '@/shared/assets/icons/drop up.svg';
 import Instagram from '@/shared/assets/images/instagram-line.svg';
 import Telegram from '@/shared/assets/images/telegram-2-fill.svg';
 import ArrowRight from '@/shared/assets/icons/Arrow.svg';
+
+interface cardProps {
+  image: string;
+  title: string;
+  description: string;
+  fullText?: string;
+  isOpen: boolean;
+  Course: boolean;
+  onClick: () => void;
+}
 
 export const CardActivity = ({
   image,
@@ -30,19 +39,13 @@ export const CardActivity = ({
         <div
           className={`${scss.textContent} ${isOpen ? scss.textContent_open : ''}`}
         >
-          <Typography variant='title' weight='600'>
-            {title}
-          </Typography>
+          <h1>{title}</h1>
 
-          <Typography variant='card_desc' weight='400'>
-            {description}
-          </Typography>
+          <p className={`${scss.description} `}>{description}</p>
 
           {isOpen && !Course && (
             <div className={scss.fullText}>
-              <Typography variant='card_desc' weight='400'>
-                {fullText}
-              </Typography>
+              <p className={scss.fullText_paragraph}>{fullText}</p>
             </div>
           )}
         </div>

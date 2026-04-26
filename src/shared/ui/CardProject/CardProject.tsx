@@ -1,7 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import scss from "./CardProject.module.scss";
-import type { CardProps } from "@/src/shared/types/cardProject/types";
+
+interface CardProps {
+    title: string;
+    id:number;
+    desc: string;
+    image:string;
+    className?: string;
+    ImageWrapperClassName?: string;
+    mainContentClassName?: string;
+}
 
 export const CardProject = ({ image, title, desc, id }: CardProps) => {
   return (
