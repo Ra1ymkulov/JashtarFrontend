@@ -1,4 +1,4 @@
-// import { Typography } from '../Typography/Typography';
+import Image from 'next/image';
 import scss from './CardActivity.module.scss';
 import ArrowDown from '@/shared/assets/images/drop down.svg';
 import ArrowUp from '@/shared/assets/icons/drop up.svg';
@@ -31,7 +31,7 @@ export const CardActivity = ({
     >
       {(Course || !isOpen) && image && (
         <div className={scss.imageWrapper}>
-          <img src={image} alt='' />
+          <Image src={image} alt='' fill />
         </div>
       )}
 
@@ -54,10 +54,10 @@ export const CardActivity = ({
           {!Course && (
             <div className={scss.socials}>
               <div className={scss.icon}>
-                <img src={Telegram} alt='telegram' />{' '}
+                <Image src={Telegram} alt='telegram' width={24} height={24} />
               </div>
               <div className={scss.icon}>
-                <img src={Instagram} alt='instagram' />{' '}
+                <Image src={Instagram} alt='instagram' width={24} height={24} />
               </div>
             </div>
           )}
@@ -69,11 +69,11 @@ export const CardActivity = ({
             <span>{Course ? 'Записаться' : isOpen ? '' : 'Подробнее'}</span>
             <span className={scss.arrow}>
               {Course ? (
-                <img src={ArrowRight} alt='go' />
+                <Image src={ArrowRight} alt='go' width={20} height={20} />
               ) : isOpen ? (
-                <img src='ArrowUp' alt='close' />
+                <Image src={ArrowUp} alt='close' width={20} height={20} />
               ) : (
-                <img src={ArrowDown} alt='open' />
+                <Image src={ArrowDown} alt='open' width={20} height={20} />
               )}
             </span>
           </button>
