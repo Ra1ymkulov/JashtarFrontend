@@ -1,3 +1,5 @@
+"use client";
+import React from "react";
 import scss from "./CardEvents.module.scss";
 
 interface ICardEventsProps {
