@@ -1,0 +1,30 @@
+.goalsBlock {
+  width: 100%;
+  padding: 0 110px;
+  display: flex;
+  flex-direction: column;  
+  gap: 24px;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.goalsHeader {
+  text-align: center;
+}
+
+.goalsContent {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  
+
+ul{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+li{
+    list-style: disc inside;
+}
+}
