@@ -5,7 +5,7 @@ const EventsPage = () => {
   return (
     <>
       <UpcomingEvents />
-      <EventsArchive />
+      <EventsArchive showAll={false} />
     </>
   );
 };

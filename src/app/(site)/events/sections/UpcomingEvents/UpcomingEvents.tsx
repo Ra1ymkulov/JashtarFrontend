@@ -1,32 +1,47 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { CardEvents } from "../../../../../shared/ui/cardEvents/CardEvents";
-import { eventsStore } from "../../../../store/events/events";
 import scss from "./UpcomingEvents.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 
+const mockUpcoming = [
+  {
+    id: 1,
+    title: "Техническая конференция 2026",
+    description: "Обсуждение новейших технологий в разработке",
+    date: "15.05",
+    image: "https://www.gem-center.ru/data/image/NGA/Conf2025-440x300.jpg",
+  },
+  {
+    id: 2,
+    title: "Воркшоп по Next.js",
+    description: "Практическое занятие по современному React-фреймворку",
+    date: "22.05",
+    image: "https://www.gem-center.ru/data/image/NGA/Conf2025-440x300.jpg",
+  },
+  {
+    id: 3,
+    title: "Хакатон: Инновации в образовании",
+    description: "Соревнование для разработчиков и дизайнеров",
+    date: "05.06",
+    image: "https://www.gem-center.ru/data/image/NGA/Conf2025-440x300.jpg",
+  },
+  {
+    id: 4,
+    title: "Форум молодых лидеров",
+    description: "Встреча активной молодёжи со спикерами",
+    date: "18.06",
+    image: "https://www.gem-center.ru/data/image/NGA/Conf2025-440x300.jpg",
+  },
+];
+
 const UpcomingEvents: React.FC = () => {
   const router = useRouter();
-  const { fetchevents, event } = eventsStore();
-
-  useEffect(() => {
-    fetchevents();
-  }, [fetchevents]);
-
-  const eventsList = event?.events_list || [];
-
-  const upcomingEvents = eventsList.filter((item) => {
-    if (!item.data) return true;
-    const eventDate = new Date(item.data);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return eventDate >= today;
-  });
 
   return (
     <div className={scss.UpcomingEvents}>
@@ -45,14 +60,14 @@ const UpcomingEvents: React.FC = () => {
               977: { slidesPerView: 3 },
             }}
           >
-            {upcomingEvents.map((item) => (
+            {mockUpcoming.map((item) => (
               <SwiperSlide key={item.id} className={scss.slide}>
                 <CardEvents
                   id={item.id}
                   title={item.title}
                   description={item.description}
                   date={item.date}
-                  image={item.images?.[0]?.image}
+                  image={item.image}
                   onClick={(id) => router.push(`/events/${id}`)}
                 />
               </SwiperSlide>
