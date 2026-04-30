@@ -1,11 +1,20 @@
-import scss from './CardActivity.module.scss';
 import Image from 'next/image';
-import type { cardProps } from '@/src/shared/types/cardActivity/types';
-import ArrowDown from '@/public/assets/icons/dropDown.svg';
-import ArrowUp from '@/public/assets/icons/dropUp.svg';
-import Instagram from '@/public/assets/icons/instagram.svg';
-import Telegram from '@/public/assets/icons/telegram.svg';
-import ArrowRight from '@/public/assets/icons/Arrow.svg';
+import scss from './CardActivity.module.scss';
+import ArrowDown from '@/shared/assets/images/drop down.svg';
+import ArrowUp from '@/shared/assets/icons/drop up.svg';
+import Instagram from '@/shared/assets/images/instagram-line.svg';
+import Telegram from '@/shared/assets/images/telegram-2-fill.svg';
+import ArrowRight from '@/shared/assets/icons/Arrow.svg';
+
+interface cardProps {
+  image: string;
+  title: string;
+  description: string;
+  fullText?: string;
+  isOpen: boolean;
+  Course: boolean;
+  onClick: () => void;
+}
 
 export const CardActivity = ({
   image,
@@ -15,16 +24,14 @@ export const CardActivity = ({
   isOpen,
   onClick,
   Course,
-  color,
 }: cardProps) => {
   return (
     <div
-      className={`${scss.card} ${isOpen ? scss.card_open : ''} ${Course ? scss.card_course : ''}`}
-      style={{ backgroundColor: color }}
+      className={`${scss.card} ${isOpen ? scss.card_open : ''}  ${Course ? scss.card_course : ''}`}
     >
       {(Course || !isOpen) && image && (
         <div className={scss.imageWrapper}>
-          <Image src={image} alt={title} fill style={{ objectFit: 'cover' }} />
+          <Image src={image} alt='' fill />
         </div>
       )}
 
@@ -34,11 +41,11 @@ export const CardActivity = ({
         >
           <h1>{title}</h1>
 
-          <p className={scss.description}>{description}</p>
+          <p className={`${scss.description} `}>{description}</p>
 
           {isOpen && !Course && (
             <div className={scss.fullText}>
-              <p>{fullText}</p>
+              <p className={scss.fullText_paragraph}>{fullText}</p>
             </div>
           )}
         </div>
@@ -47,20 +54,10 @@ export const CardActivity = ({
           {!Course && (
             <div className={scss.socials}>
               <div className={scss.icon}>
-                <Image
-                  width={19.55}
-                  height={16.2}
-                  src={Telegram}
-                  alt='telegram'
-                />{' '}
+                <Image src={Telegram} alt='telegram' width={24} height={24} />
               </div>
               <div className={scss.icon}>
-                <Image
-                  width={19.55}
-                  height={16.2}
-                  src={Instagram}
-                  alt='instagram'
-                />{' '}
+                <Image src={Instagram} alt='instagram' width={24} height={24} />
               </div>
             </div>
           )}
@@ -72,11 +69,11 @@ export const CardActivity = ({
             <span>{Course ? 'Записаться' : isOpen ? '' : 'Подробнее'}</span>
             <span className={scss.arrow}>
               {Course ? (
-                <Image src={ArrowRight} alt='go' />
+                <Image src={ArrowRight} alt='go' width={20} height={20} />
               ) : isOpen ? (
-                <Image src={ArrowUp} alt='close' />
+                <Image src={ArrowUp} alt='close' width={20} height={20} />
               ) : (
-                <Image src={ArrowDown} alt='open' />
+                <Image src={ArrowDown} alt='open' width={20} height={20} />
               )}
             </span>
           </button>
