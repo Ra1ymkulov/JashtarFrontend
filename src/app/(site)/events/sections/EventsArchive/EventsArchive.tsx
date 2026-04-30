@@ -49,7 +49,11 @@ const mockPast = [
   },
 ];
 
-const EventsArchive: React.FC = () => {
+interface IEventsArchiveProps {
+  showAll?: boolean;
+}
+
+const EventsArchive: React.FC<IEventsArchiveProps> = ({ showAll = false }) => {
   const router = useRouter();
   const [count, setCount] = useState(3);
 
@@ -62,17 +66,21 @@ const EventsArchive: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const displayedEvents = showAll ? mockPast : mockPast.slice(0, count);
+
   return (
     <div className="container">
       <div className={scss.eventPage}>
         <div className={scss.eventPageTitle}>
           <h2>Архив мероприятий</h2>
-          <button onClick={() => router.push("/events/archive")}>
-            Подробнее
-          </button>{" "}
+          {!showAll && (
+            <button onClick={() => router.push("/events/archive")}>
+              Подробнее
+            </button>
+          )}
         </div>
         <div className={scss.eventPageCards}>
-          {mockPast.slice(0, count).map((item) => (
+          {displayedEvents.map((item) => (
             <CardEvents
               key={item.id}
               id={item.id}
