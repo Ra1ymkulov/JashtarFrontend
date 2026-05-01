@@ -11,7 +11,6 @@ import {
 import Image from "next/image";
 import scss from "./Banner.module.scss";
 
-// Импорт стилей
 // @ts-ignore
 import "swiper/css";
 // @ts-ignore
@@ -21,7 +20,6 @@ import "swiper/css/pagination";
 // @ts-ignore
 import "swiper/css/effect-fade";
 
-// Имитация данных из API
 const mockData = [
 	{
 		id: 1,
@@ -68,9 +66,21 @@ const Banner = () => {
 					fadeEffect={{
 						crossFade: true,
 					}}
-					speed={2000}
+					speed={1000}
 					loop={true}
 					autoplay={{ delay: 5000, disableOnInteraction: false }}
+					mousewheel={true}
+					keyboard={true}
+					navigation={{
+						prevEl: `.${scss.navPrev}`,
+						nextEl: `.${scss.navNext}`,
+					}}
+					pagination={{
+						clickable: true,
+						el: `.${scss.paginationContainer}`,
+						bulletClass: scss.bullet,
+						bulletActiveClass: scss.bulletActive,
+					}}
 					className={scss.mySwiper}>
 					{mockData.map((item) => (
 						<SwiperSlide key={item.id} className={scss.slide}>
