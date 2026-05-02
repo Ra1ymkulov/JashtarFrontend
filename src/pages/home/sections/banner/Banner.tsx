@@ -56,6 +56,7 @@ const Banner = () => {
             cssMode={true}
             pagination={{
               clickable: true,
+              el: `${scss.swiperPagination}`,
             }}
             onBeforeInit={(swiper: any) => {
               swiper.params.navigation.prevEl = buttonPrev.current;
@@ -90,7 +91,7 @@ const Banner = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          {/* <div ref={swiperPagination} className={scss.swiperPagination}></div> */}
+          <div className={scss.swiperPagination}></div>
         </div>
       </div>
     </section>

@@ -10,12 +10,13 @@
   position: relative;
   overflow: visible;
   width: 100%;
-  // .swiperPagination {
-  //   position: absolute;
-  //   bottom: -50px;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  // }
+  .swiperPagination {
+    position: absolute;
+    z-index: 12;
+    bottom: 50px;
+    // left: 50%;
+    // transform: translateX(-50%);
+  }
   .buttonPrev,
   .buttonNext {
     width: 48px;
