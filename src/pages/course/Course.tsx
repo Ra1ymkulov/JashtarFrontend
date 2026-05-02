@@ -48,6 +48,11 @@ export default function Course() {
   return (
     <div style={{ padding: '40px 0' }}>
       <div className='container'>
+        <h1 style={{
+          display:"flex",
+          justifyContent:"center",
+          marginBottom:"40px",
+        }}> Курсы </h1>
         <div
           style={{
             display: 'flex',

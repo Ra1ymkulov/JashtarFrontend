@@ -69,6 +69,12 @@ export default function DirectionsPage() {
   return (
     <div style={{ padding: '40px 0' }}>
       <div className='container'>
+        <h1 style={{
+          display:"flex",
+          justifyContent:"center",
+          marginBottom:"40px",
+        }}> Направление деятельности </h1>
+
         <div
           style={{
             display: 'flex',
