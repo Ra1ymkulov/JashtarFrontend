@@ -1,0 +1,108 @@
+.page {
+  padding-block: 40px;
+}
+
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.title {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: #444;
+  line-height: 1.7;
+}
+
+// Галерея
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 12px;
+  margin-bottom: 60px;
+  align-items: end;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imgWrap {
+  overflow: hidden;
+  border-radius: 12px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Первое фото — маленькое снизу слева
+.img1 {
+  height: 160px;
+  align-self: end;
+}
+
+// Второе фото — маленькое
+.img2 {
+  height: 130px;
+  align-self: end;
+}
+
+// Третье фото — большое центральное
+.img3 {
+  height: 260px;
+  grid-row: span 1;
+}
+
+// Четвёртое фото — среднее справа
+.img4 {
+  height: 200px;
+  align-self: end;
+}
+
+// Детали
+.details {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.detailsTitle {
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(14px, 1.5vw, 18px);
+  color: #333;
+
+  span {
+    font-weight: 500;
+  }
+}
