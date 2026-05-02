@@ -1,12 +1,12 @@
-import { NavPanel } from '@/src/shared/ui/navpanel/NavPanel';
-import { CardProject } from '@/src/shared/ui/CardProject/CardProject';
-import { projects } from './Staticdata/projects';
-import scss from './Projects.module.scss';
+import { NavPanel } from "@/src/shared/ui/navpanel/NavPanel";
+import { CardProject } from "@/src/shared/ui/cardProject/CardProject";
+import { projects } from "./Staticdata/projects";
+import scss from "./Projects.module.scss";
 
 const Projects = () => {
   return (
     <>
-      <NavPanel items={[{ label: 'Проекты', href: '/projects' }]} />
+      <NavPanel items={[{ label: "Проекты", href: "/projects" }]} />
       <section>
         <div className="container">
           <h1 className={scss.title}>Проекты</h1>

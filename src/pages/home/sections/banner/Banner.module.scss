@@ -1,1 +1,148 @@
-// styles
+.bannerSection {
+  padding: 40px 0;
+}
+.containerBanner {
+  max-width: 1300px;
+  width: 90%;
+  margin-inline: auto;
+}
+.bannerWrapper {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  // .swiperPagination {
+  //   position: absolute;
+  //   bottom: -50px;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  // }
+  .buttonPrev,
+  .buttonNext {
+    width: 48px;
+    height: 48px;
+    backdrop-filter: blur(10px);
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #2e6cf4;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    svg {
+      font-size: 20px;
+    }
+    &::after {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .buttonPrev {
+    z-index: 10;
+    left: -24px;
+  }
+  .buttonNext {
+    z-index: 10;
+    right: -24px;
+  }
+  .bannerSwiper {
+    width: 100%;
+    height: 550px;
+    border-radius: 16px;
+    // overflow: hidden;
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 80px;
+    }
+    .bannerBg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .bannerOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+      );
+      z-index: 1;
+    }
+    .bannerContent {
+      position: relative;
+      z-index: 5;
+      text-align: left;
+      color: white;
+      max-width: 600px;
+      h1 {
+        font-size: 64px;
+        font-weight: 700;
+      }
+      p {
+        font-size: 18px;
+        font-weight: 400;
+        max-width: 520px;
+      }
+      .bannerBtn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
+        font-size: 16px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        svg {
+          transition: transform 0.3s ease;
+        }
+        &:hover {
+          background: #1d4ed8;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+
+          svg {
+            transform: translateX(4px);
+          }
+        }
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+    :global(.swiper-pagination) {
+      bottom: 22px !important;
+    }
+    :global(.swiper-pagination-bullet) {
+      width: 10px;
+      height: 10px;
+      background: white;
+      opacity: 0.4;
+      transition: all 0.3s ease;
+      margin: 0 6px !important;
+    }
+    :global(.swiper-pagination-bullet-active) {
+      opacity: 1;
+      background: #2563eb;
+      width: 32px;
+      border-radius: 5px;
+    }
+  }
+}
