@@ -1,0 +1,115 @@
+.eventPage {
+  padding-bottom: 50px;
+
+  .eventPageTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: clamp(20px, 3.6vw, 40px);
+
+    h2 {
+      font-size: clamp(20px, 3.6vw, 40px);
+      font-weight: 600;
+    }
+
+    button {
+      font-size: clamp(12px, 1.8vw, 22px);
+      font-weight: 400;
+      padding: 12px 29px;
+      border: 1px solid #2e6cf4;
+      border-radius: 10px;
+      color: #2e6cf4;
+      background: transparent;
+      cursor: pointer;
+
+      &:hover {
+        background: #2e6cf4;
+        color: #fff;
+        transition: all 0.2s ease;
+      }
+
+      @media (max-width: 1024px) {
+        padding: 10px 26px;
+      }
+      @media (max-width: 768px) {
+        padding: 8px 20px;
+        border-radius: 7px;
+      }
+      @media (max-width: 480px) {
+        padding: 5px 13px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .eventPageCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    @media (max-width: 977px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Пагинация
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+.pageBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #2e6cf4;
+    color: #2e6cf4;
+  }
+
+  &.active {
+    background: #2e6cf4;
+    border-color: #2e6cf4;
+    color: #fff;
+  }
+}
+
+.pageArrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+  background: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    border-color: #2e6cf4;
+    color: #2e6cf4;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

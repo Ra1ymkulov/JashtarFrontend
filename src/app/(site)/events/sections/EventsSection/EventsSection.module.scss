@@ -1,0 +1,51 @@
+.event {
+  padding-block: clamp(20px, 3.6vw, 40px);
+
+  .eventTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    h2 {
+      font-size: clamp(20px, 3.6vw, 40px);
+      font-weight: 600;
+    }
+
+    button {
+      font-size: clamp(12px, 1.8vw, 18px);
+      padding: 10px 24px;
+      border: 1px solid #2e6cf4;
+      border-radius: 10px;
+      color: #2e6cf4;
+      background: transparent;
+      cursor: pointer;
+
+      &:hover {
+        background: #2e6cf4;
+        color: #fff;
+        transition: all 0.2s ease;
+      }
+
+      @media (max-width: 768px) {
+        padding: 8px 20px;
+      }
+      @media (max-width: 480px) {
+        padding: 5px 13px;
+      }
+    }
+  }
+
+  .eventCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    @media (max-width: 977px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
