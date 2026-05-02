@@ -47,7 +47,9 @@ export const CardActivity = ({
         >
           <h1>{title}</h1>
 
-          <p className={`${scss.description} `}>{description}</p>
+          <p className={`${scss.description} `}>
+            {Course ? "Подробнее..." : description}
+          </p>
 
           {isOpen && !course && (
             <div className={scss.fullText}>
