@@ -12,7 +12,8 @@ interface cardProps {
   description: string;
   fullText?: string;
   isOpen: boolean;
-  Course: boolean;
+  color?: string;
+  Course?: boolean;
   onClick: () => void;
 }
 
@@ -41,7 +42,9 @@ export const CardActivity = ({
         >
           <h1>{title}</h1>
 
-          <p className={`${scss.description} `}>{description}</p>
+          <p className={`${scss.description} `}>
+            {Course ? 'Подробнее...' : description}
+          </p>
 
           {isOpen && !Course && (
             <div className={scss.fullText}>
