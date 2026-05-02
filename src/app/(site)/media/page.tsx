@@ -1,5 +1,11 @@
-import Media from "@/src/pages/media/Media";
+import { PhotoGallery } from "./ui/PhotoGallery/PhotoGallery";
+import { VideoGallery } from "./ui/VideoGallery/VideoGallery";
 
-const page = () => <Media />;
-
-export default page;
+export default function MediaPage() {
+  return (
+    <div>
+      <PhotoGallery />
+      <VideoGallery />
+    </div>
+  );
+}
