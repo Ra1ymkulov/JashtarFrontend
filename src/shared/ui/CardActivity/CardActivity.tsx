@@ -1,10 +1,10 @@
 import Image from "next/image";
 import scss from "./CardActivity.module.scss";
-import ArrowDown from "@/shared/assets/images/drop down.svg";
-import ArrowUp from "@/shared/assets/icons/drop up.svg";
-import Instagram from "@/shared/assets/images/instagram-line.svg";
-import Telegram from "@/shared/assets/images/telegram-2-fill.svg";
-import ArrowRight from "@/shared/assets/icons/Arrow.svg";
+import ArrowDown from "./../../../../public/assets/icons/dropDown.svg";
+import ArrowUp from "./../../../../public/assets/icons/dropUp.svg";
+import Instagram from "./../../../../public/assets/icons/instagram.svg";
+import Telegram from "./../../../../public/assets/icons/telegram.svg";
+import ArrowRight from "./../../../../public/assets/icons/Arrow.svg";
 
 interface cardProps {
   image: string;
