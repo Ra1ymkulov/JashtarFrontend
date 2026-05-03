@@ -74,7 +74,7 @@ export default function Course() {
               title={item.title}
               description={item.description}
               isOpen={false}
-              Course={true}
+              course={true}
               href={item.href}
               onClick={() => {}}
             />
