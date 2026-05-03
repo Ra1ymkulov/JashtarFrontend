@@ -1,0 +1,40 @@
+.cardMovement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: #abc4fb;
+  border-radius: 16px;
+  padding: 40px 20px 20px;
+  color: #111111;
+  position: relative;
+  .title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .description {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .circleBorder {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 58px;
+    background: #abc4fb;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    .circle {
+      background: #d5e2fd;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  }
+}
