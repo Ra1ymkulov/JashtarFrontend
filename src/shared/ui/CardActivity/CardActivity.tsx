@@ -48,7 +48,7 @@ export const CardActivity = ({
           <h1>{title}</h1>
 
           <p className={`${scss.description} `}>
-            {Course ? "Подробнее..." : description}
+            {course ? "Подробнее..." : description}
           </p>
 
           {isOpen && !course && (
