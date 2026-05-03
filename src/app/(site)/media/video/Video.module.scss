@@ -66,7 +66,7 @@ $breakpoint-xs: 480px;
   width: 100%;
   flex-wrap: wrap;
   gap: 1rem;
-
+  margin-top: 33px;
   @media (max-width: $breakpoint-sm) {
     flex-direction: column;
     align-items: flex-start;
@@ -75,8 +75,8 @@ $breakpoint-xs: 480px;
 
 .title {
   font-family: var(--h-1-font-family);
-  font-weight: var(--h-1-font-weight);
-  font-size: var(--h-1-font-size);
+  font-weight: 600;
+  font-size: 40px;
   color: var(--main-black-0);
   margin: 0;
 
@@ -91,7 +91,6 @@ $breakpoint-xs: 480px;
 .buttons {
   display: flex;
   gap: 1rem;
-
   @media (max-width: $breakpoint-sm) {
     width: 100%;
     flex-direction: column;
@@ -105,12 +104,12 @@ $breakpoint-xs: 480px;
   gap: 0.625rem;
   padding: 0.75rem 1.5rem;
   background: var(--main-white);
-  border: 1px solid var(--dark-blue-0);
+  border: 1px solid #2e6cf4;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
   min-height: 48px;
-
+  color: #2e6cf4;
   &:hover {
     background: var(--dark-blue-0);
     transform: translateY(-2px);

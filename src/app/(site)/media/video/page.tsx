@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { VideoCard } from "../../../../pages/media/ui/VideoCard/VideoCard";
 import styles from "./Video.module.scss";
+import router from "next/router";
 
 const ALL_VIDEOS = Array.from({ length: 9 }, (_, i) => ({
   id: i + 1,
@@ -76,8 +77,9 @@ export default function VideoPage() {
             <span className={styles.buttonText}>Выбрать дату</span>
             <CalendarDays className={styles.buttonIcon} />
           </button>
-          <button className={styles.button}>
-            <span className={styles.buttonText}>Фильтр стиля</span>
+          <button className={styles.button} onClick={() => router.back()}>
+            <span className={styles.buttonText}>Вернуться назад</span>
+            <ArrowLeft className={styles.buttonIcon} />
           </button>
         </div>
       </div>
