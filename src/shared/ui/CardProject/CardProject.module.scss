@@ -9,60 +9,32 @@
   justify-content: center;
   box-sizing: border-box;
 }
-
 .ImageWrapper {
   position: relative;
   width: 100%;
   height: 350px;
 }
-
 .image {
   object-fit: cover;
 }
-
 .mainContent {
-  padding: 24px;
-  flex: 1;
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
-  gap: 12px;
+  gap: 15px;
+  width: 100%;
+  padding-top: 15px;
 }
-
 .description {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  min-height: 45px;
 }
 .title {
-  min-height: 3em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 22px;
+  font-weight: 500;
 }
-
-.learnMoreButton {
-  width: 100%;
-  height: 52px;
-  background-color: #3b82f6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  border: none;
-  margin-top: 20px;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #2563eb;
-  }
-}
-
 @media (max-width: 480px) {
   .projectCard {
     flex-basis: 100%;
