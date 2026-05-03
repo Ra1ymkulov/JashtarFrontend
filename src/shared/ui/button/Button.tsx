@@ -4,7 +4,7 @@ import scss from "./Button.module.scss";
 interface IButtonProps {
   text: string;
   onClick?: () => void;
-  variant?: "primary" | "outline";
+  variant: "primary" | "outline";
 }
 
 export const Button: React.FC<IButtonProps> = ({
