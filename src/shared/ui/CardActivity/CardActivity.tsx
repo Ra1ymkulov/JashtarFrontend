@@ -12,8 +12,9 @@ interface cardProps {
   description: string;
   fullText?: string;
   isOpen: boolean;
-  course: boolean;
+  course?: boolean;
   color?: string;
+  href?: string;
   onClick: () => void;
 }
 
@@ -26,6 +27,7 @@ export const CardActivity = ({
   onClick,
   course,
   color,
+  href,
 }: cardProps) => {
   return (
     <div
@@ -38,7 +40,6 @@ export const CardActivity = ({
           <Image src={image} alt="" fill />
         </div>
       )}
-
       <div className={scss.card_content}>
         <div
           className={`${scss.textContent} ${
@@ -46,18 +47,15 @@ export const CardActivity = ({
           }`}
         >
           <h1>{title}</h1>
-
           <p className={`${scss.description} `}>
             {course ? "Подробнее..." : description}
           </p>
-
           {isOpen && !course && (
             <div className={scss.fullText}>
               <p className={scss.fullText_paragraph}>{fullText}</p>
             </div>
           )}
         </div>
-
         <div className={scss.footer}>
           {!course && (
             <div className={scss.socials}>
@@ -70,23 +68,37 @@ export const CardActivity = ({
             </div>
           )}
 
-          <button
-            className={`${scss.toggleButton} ${
-              isOpen ? scss.toggleButton_open : ""
-            }  ${course ? scss.toggleButton_course : ""}`}
-            onClick={onClick}
-          >
-            <span>{course ? "Записаться" : isOpen ? "" : "Подробнее"}</span>
-            <span className={scss.arrow}>
-              {course ? (
+          {course && href ? (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${scss.toggleButton} ${scss.toggleButton_course}`}
+            >
+              <span>Записаться</span>
+              <span className={scss.arrow}>
                 <Image src={ArrowRight} alt="go" width={20} height={20} />
-              ) : isOpen ? (
-                <Image src={ArrowUp} alt="close" width={20} height={20} />
-              ) : (
-                <Image src={ArrowDown} alt="open" width={20} height={20} />
-              )}
-            </span>
-          </button>
+              </span>
+            </a>
+          ) : (
+            <button
+              className={`${scss.toggleButton} ${
+                isOpen ? scss.toggleButton_open : ""
+              }  ${course ? scss.toggleButton_course : ""}`}
+              onClick={onClick}
+            >
+              <span>{course ? "Записаться" : isOpen ? "" : "Подробнее"}</span>
+              <span className={scss.arrow}>
+                {course ? (
+                  <Image src={ArrowRight} alt="go" width={20} height={20} />
+                ) : isOpen ? (
+                  <Image src={ArrowUp} alt="close" width={20} height={20} />
+                ) : (
+                  <Image src={ArrowDown} alt="open" width={20} height={20} />
+                )}
+              </span>
+            </button>
+          )}
         </div>
       </div>
     </div>
