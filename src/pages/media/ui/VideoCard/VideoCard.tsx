@@ -5,8 +5,8 @@ interface VideoCardProps {
   id: number;
   date?: string;
   title: string;
-  thumbnailUrl?: string;
   videoUrl: string;
+  thumbnailUrl?: string;
 }
 
 export const VideoCard: React.FC<VideoCardProps> = ({
