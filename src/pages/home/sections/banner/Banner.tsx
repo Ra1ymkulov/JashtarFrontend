@@ -5,15 +5,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { useRef } from "react";
 
 const Banner = () => {
   const data = [
     {
       id: 1,
-      title: "Banner",
+      title: "Banner 1",
       description:
         "Предварительное внесло мартышкалный. Классно-качественная прототип будущего просьба в резво проекции поможет.",
       cta_text: "Вступить в движение",
@@ -22,7 +21,7 @@ const Banner = () => {
     },
     {
       id: 2,
-      title: "Banner",
+      title: "Banner 2",
       description:
         "Предварительное внесло мартышкалный. Классно-качественная прототип будущего просьба в резво проекции поможет.",
       cta_text: "Вступить в движение",
@@ -31,7 +30,7 @@ const Banner = () => {
     },
     {
       id: 3,
-      title: "Banner",
+      title: "Banner 3",
       description:
         "Предварительное внесло мартышкалный. Классно-качественная прототип будущего просьба в резво проекции поможет.",
       cta_text: "Вступить в движение",
@@ -40,8 +39,9 @@ const Banner = () => {
     },
   ];
 
-  const buttonPrev = useRef(null);
-  const buttonNext = useRef(null);
+  const buttonPrev = useRef<HTMLButtonElement>(null);
+  const buttonNext = useRef<HTMLButtonElement>(null);
+
   return (
     <section className={scss.bannerSection}>
       <div className={scss.containerBanner}>
@@ -52,12 +52,11 @@ const Banner = () => {
           <button ref={buttonNext} className={scss.buttonNext}>
             <IoIosArrowForward />
           </button>
+
           <Swiper
-            cssMode={true}
-            pagination={{
-              clickable: true,
-              el: `${scss.swiperPagination}`,
-            }}
+            loop={true}
+            keyboard={true}
+            pagination={{ clickable: true }}
             onBeforeInit={(swiper: any) => {
               swiper.params.navigation.prevEl = buttonPrev.current;
               swiper.params.navigation.nextEl = buttonNext.current;
@@ -66,11 +65,8 @@ const Banner = () => {
               prevEl: buttonPrev.current,
               nextEl: buttonNext.current,
             }}
-            mousewheel={true}
-            keyboard={true}
             modules={[Navigation, Pagination, Mousewheel, Keyboard]}
             className={scss.bannerSwiper}
-            loop={true}
           >
             {data.map((item) => (
               <SwiperSlide key={item.id}>
@@ -91,7 +87,6 @@ const Banner = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className={scss.swiperPagination}></div>
         </div>
       </div>
     </section>

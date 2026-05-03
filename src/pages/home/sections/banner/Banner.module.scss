@@ -1,57 +1,82 @@
 .bannerSection {
   padding: 40px 0;
 }
+
 .containerBanner {
   max-width: 1300px;
   width: 90%;
   margin-inline: auto;
 }
+
 .bannerWrapper {
   position: relative;
-  overflow: visible;
   width: 100%;
-  .swiperPagination {
-    position: absolute;
-    z-index: 12;
-    bottom: 50px;
-    // left: 50%;
-    // transform: translateX(-50%);
-  }
+  padding-bottom: 48px;
+
   .buttonPrev,
   .buttonNext {
     width: 48px;
     height: 48px;
-    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     border-radius: 50%;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: #2e6cf4;
     position: absolute;
-    top: 50%;
+    top: calc(550px / 2);
     transform: translateY(-50%);
     z-index: 20;
+    cursor: pointer;
+
     svg {
       font-size: 20px;
     }
-    &::after {
-      font-size: 16px;
-      font-weight: bold;
+
+    &:hover {
+      background: #1d4ed8;
     }
   }
+
   .buttonPrev {
-    z-index: 10;
     left: -24px;
   }
+
   .buttonNext {
-    z-index: 10;
     right: -24px;
   }
+
   .bannerSwiper {
     width: 100%;
     height: 550px;
     border-radius: 16px;
-    // overflow: hidden;
+    :global(.swiper-pagination) {
+      position: absolute;
+      left: 0;
+      bottom: 10px;
+      width: 100%;
+      z-index: 40;
+    }
+
+    :global(.swiper-pagination-bullet) {
+      width: 10px;
+      height: 10px;
+      background: #cbd5e1;
+      opacity: 1;
+      border-radius: 50%;
+      margin: 0 4px !important;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    :global(.swiper-pagination-bullet-active) {
+      background: #2563eb;
+      width: 20px;
+      border-radius: 5px;
+    }
+
     .banner {
       position: relative;
       width: 100%;
@@ -61,6 +86,7 @@
       align-items: center;
       padding-left: 80px;
     }
+
     .bannerBg {
       width: 100%;
       height: 100%;
@@ -69,6 +95,7 @@
       top: 0;
       left: 0;
     }
+
     .bannerOverlay {
       position: absolute;
       top: 0;
@@ -83,21 +110,28 @@
       );
       z-index: 1;
     }
+
     .bannerContent {
       position: relative;
       z-index: 5;
-      text-align: left;
       color: white;
       max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 12px;
+
       h1 {
         font-size: 64px;
         font-weight: 700;
       }
+
       p {
         font-size: 18px;
         font-weight: 400;
         max-width: 520px;
       }
+
       .bannerBtn {
         display: inline-flex;
         align-items: center;
@@ -111,39 +145,17 @@
         cursor: pointer;
         transition: all 0.3s ease;
         font-weight: 500;
-        svg {
-          transition: transform 0.3s ease;
-        }
+
         &:hover {
           background: #1d4ed8;
           transform: translateY(-2px);
           box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
-
-          svg {
-            transform: translateX(4px);
-          }
         }
+
         &:active {
           transform: translateY(0);
         }
       }
-    }
-    :global(.swiper-pagination) {
-      bottom: 22px !important;
-    }
-    :global(.swiper-pagination-bullet) {
-      width: 10px;
-      height: 10px;
-      background: white;
-      opacity: 0.4;
-      transition: all 0.3s ease;
-      margin: 0 6px !important;
-    }
-    :global(.swiper-pagination-bullet-active) {
-      opacity: 1;
-      background: #2563eb;
-      width: 32px;
-      border-radius: 5px;
     }
   }
 }
