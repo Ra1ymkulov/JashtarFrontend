@@ -14,6 +14,7 @@ interface cardProps {
   isOpen: boolean;
   color?: string;
   Course?: boolean;
+  href?: string;
   onClick: () => void;
 }
 
@@ -25,6 +26,7 @@ export const CardActivity = ({
   isOpen,
   onClick,
   Course,
+  href,
 }: cardProps) => {
   return (
     <div
@@ -65,21 +67,35 @@ export const CardActivity = ({
             </div>
           )}
 
-          <button
-            className={`${scss.toggleButton} ${isOpen ? scss.toggleButton_open : ''}  ${Course ? scss.toggleButton_course : ''}`}
-            onClick={onClick}
-          >
-            <span>{Course ? 'Записаться' : isOpen ? '' : 'Подробнее'}</span>
-            <span className={scss.arrow}>
-              {Course ? (
+          {Course && href ? (
+            <a  
+              href={href}
+              target='_blank'
+              rel='noopener noreferrer'
+              className={`${scss.toggleButton} ${scss.toggleButton_course}`}
+            >
+              <span>Записаться</span>
+              <span className={scss.arrow}>
                 <Image src={ArrowRight} alt='go' width={20} height={20} />
-              ) : isOpen ? (
-                <Image src={ArrowUp} alt='close' width={20} height={20} />
-              ) : (
-                <Image src={ArrowDown} alt='open' width={20} height={20} />
-              )}
-            </span>
-          </button>
+              </span>
+            </a>
+          ) : (
+            <button
+              className={`${scss.toggleButton} ${isOpen ? scss.toggleButton_open : ''} ${Course ? scss.toggleButton_course : ''}`}
+              onClick={onClick}
+            >
+              <span>{Course ? 'Записаться' : isOpen ? '' : 'Подробнее'}</span>
+              <span className={scss.arrow}>
+                {Course ? (
+                  <Image src={ArrowRight} alt='go' width={20} height={20} />
+                ) : isOpen ? (
+                  <Image src={ArrowUp} alt='close' width={20} height={20} />
+                ) : (
+                  <Image src={ArrowDown} alt='open' width={20} height={20} />
+                )}
+              </span>
+            </button>
+          )}
         </div>
       </div>
     </div>
