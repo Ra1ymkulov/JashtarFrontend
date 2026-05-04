@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // ✅ правильный импорт
 import {
   ChevronRight,
   ArrowLeft,
@@ -10,18 +11,18 @@ import {
 import Link from "next/link";
 import { VideoCard } from "../../../../pages/media/ui/VideoCard/VideoCard";
 import styles from "./Video.module.scss";
-import router from "next/router";
 
-const ALL_VIDEOS = Array.from({ length: 9 }, (_, i) => ({
+const ALL_VIDEOS = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   date: `${12 - (i % 5)}.0${(i % 3) + 1}.2025`,
-  title: `Название фото "Наз..."`,
+  title: `Название видео "Наз..."`,
   videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 }));
 
 const ITEMS_PER_PAGE = 9;
 
 export default function VideoPage() {
+  const router = useRouter(); // ✅ хук внутри компонента
   const [page, setPage] = useState(1);
   const totalPages = Math.ceil(ALL_VIDEOS.length / ITEMS_PER_PAGE);
   const pageItems = ALL_VIDEOS.slice(
@@ -77,7 +78,10 @@ export default function VideoPage() {
             <span className={styles.buttonText}>Выбрать дату</span>
             <CalendarDays className={styles.buttonIcon} />
           </button>
-          <button className={styles.button} onClick={() => router.back()}>
+          <button
+            className={styles.button}
+            onClick={() => router.push("/media")} // ✅ переход на /media
+          >
             <span className={styles.buttonText}>Вернуться назад</span>
             <ArrowLeft className={styles.buttonIcon} />
           </button>

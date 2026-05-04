@@ -167,17 +167,16 @@ $breakpoint-xs: 480px;
     gap: 1rem;
   }
 }
-
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin: 2rem 0;
+  margin: 40px 0;
 
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: 768px) {
     gap: 4px;
-    margin: 1.5rem 0;
+    margin: 24px 0;
   }
 }
 
@@ -189,37 +188,41 @@ $breakpoint-xs: 480px;
   height: 44px;
   border: none;
   border-radius: 50%;
-  background: var(--main-black-200, #e5e7eb);
-  color: var(--main-black-0);
+  color: #fff;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  background: rgba(0, 0, 0, 0.34);
 
   &:hover:not(.disabled) {
-    background: var(--dark-blue-0);
-    color: white;
-    transform: translateY(-1px);
+    background: #2e6cf4;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.279);
   }
 
   &.disabled {
     opacity: 0.4;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
 
   &.next {
-    background: var(--dark-blue-0);
-    color: white;
+    background: #2e6cf4;
+    color: #fff;
 
     &:hover:not(.disabled) {
       opacity: 0.85;
+      transform: translateY(-2px);
     }
 
     &.disabled {
-      background: var(--main-black-200, #e5e7eb);
-      color: var(--main-black-400, #9ca3af);
+      background: #2e6cf4;
+      color: #9ca3af;
     }
   }
 
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: 768px) {
     width: 40px;
     height: 40px;
   }
@@ -237,7 +240,7 @@ $breakpoint-xs: 480px;
   flex-wrap: wrap;
   justify-content: center;
 
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: 768px) {
     gap: 4px;
   }
 }
@@ -249,25 +252,27 @@ $breakpoint-xs: 480px;
   min-width: 44px;
   height: 44px;
   padding: 0 12px;
-  border: 2px solid var(--dark-blue-0);
+  border: 2px solid #2e6cf4;
   border-radius: 10px;
-  background: white;
-  color: var(--dark-blue-0);
+  background: #fff;
+  color: #2e6cf4;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 
   &:hover:not(.active):not(.ellipsis) {
     background: var(--dark-blue-0);
-    color: white;
-    transform: translateY(-1px);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
   }
 
   &.active {
     background: var(--dark-blue-0);
-    color: white;
+    color: #fff;
     font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   }
 
   &.ellipsis {
@@ -275,12 +280,13 @@ $breakpoint-xs: 480px;
     background: transparent;
     color: #9ca3af;
     cursor: default;
+    font-weight: 500;
   }
 
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: 768px) {
     min-width: 40px;
     height: 40px;
-    font-size: 0.9rem;
     padding: 0 8px;
+    font-size: 0.9rem;
   }
 }
