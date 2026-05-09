@@ -26,7 +26,6 @@ const EventDetailPage = ({ params }: { params: { id: string } }) => {
           <h1 className={scss.title}>{mockEvent.title}</h1>
           <p className={scss.description}>{mockEvent.description}</p>
         </div>
-
         {/* Галерея фото */}
         <div className={scss.gallery}>
           {mockEvent.images.map((img, index) => (
