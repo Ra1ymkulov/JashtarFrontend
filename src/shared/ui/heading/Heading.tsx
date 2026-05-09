@@ -4,7 +4,8 @@ import scss from "./Heading.module.scss";
 import Link from "next/link";
 
 interface HeadingProps {
-	title: string;
+	variant?: "center" | "between";
+	title?: string;
 	description?: string;
 	buttonText?: string;
 	href?: string;
@@ -17,6 +18,7 @@ export const Heading: FC<HeadingProps> = ({
 	buttonText,
 	href,
 	onButtonClick,
+	variant = "between",
 }) => {
 	const renderButton = () => {
 		if (!buttonText) return null;
@@ -37,16 +39,13 @@ export const Heading: FC<HeadingProps> = ({
 	};
 
 	return (
-		<section className={scss.Heading}>
-			<div className="container">
-				<div className={scss.wrapper}>
-					<div className={scss.textContent}>
-						<h2 className={scss.title}>{title}</h2>
-						{description && <p className={scss.description}>{description}</p>}
-					</div>
-
-					<div className={scss.actions}>{renderButton()}</div>
+		<section className={`${scss.Heading} ${scss[variant]}`}>
+			<div className={scss.wrapper}>
+				<div className={scss.textContent}>
+					<h2 className={scss.title}>{title}</h2>
+					{description && <p className={scss.description}>{description}</p>}
 				</div>
+				{buttonText && <div className={scss.actions}>{renderButton()}</div>}
 			</div>
 		</section>
 	);
