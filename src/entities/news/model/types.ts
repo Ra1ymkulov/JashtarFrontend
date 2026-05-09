@@ -5,3 +5,9 @@ export interface News {
   data: string;
   short_text: string;
 }
+
+export interface NewsSection {
+  id: number;
+  title: string;
+  news_items: News[];
+}
