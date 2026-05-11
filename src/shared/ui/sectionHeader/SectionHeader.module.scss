@@ -1,0 +1,49 @@
+.sectionHeader {
+  padding-block: 20px;
+  .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .title {
+    font-size: clamp(
+      20px,
+      calc(20px + (36 - 20) * ((100vw - 270px) / (1000 - 270))),
+      36px
+    );
+    font-weight: 500;
+    color: #111;
+  }
+  .description {
+    font-size: clamp(
+      14px,
+      calc(14px + (20 - 14) * ((100vw - 270px) / (1000 - 270))),
+      20px
+    );
+    font-weight: 400;
+    color: #111;
+  }
+  .small {
+    max-width: 800px;
+    width: 100%;
+  }
+  .button {
+    background: none;
+    border: 1px solid #2e6cf4;
+    color: #2e6cf4;
+    padding: 10px 20px;
+    font-size: clamp(
+      14px,
+      calc(14px + (16 - 14) * ((100vw - 270px) / (1000 - 270))),
+      16px
+    );
+    border-radius: 10px;
+  }
+}

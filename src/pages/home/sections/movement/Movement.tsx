@@ -1,6 +1,7 @@
 "use client";
 import { CardMovement } from "@/src/shared/ui/cardMovement/CardMovement";
 import scss from "./Movement.module.scss";
+import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
 
 const Movement = () => {
   const data = [
@@ -33,12 +34,14 @@ const Movement = () => {
     <div className={scss.movement}>
       <div className="container">
         <div className={scss.content}>
-          <h1 className={scss.titleContent}>О движении</h1>
-          <p className={scss.descriptionContent}>
-            Внезапно, ключевые особенности структуры проекта являются только
+          <SectionHeader
+            title="О движении"
+            description="Внезапно, ключевые особенности структуры проекта являются только
             методом политического участия и в равной степени предоставлены сами
-            себе.
-          </p>
+            себе."
+            layout="center"
+            descriptionWidth="small"
+          />
           <div className={scss.cardContent}>
             {data.map((movement, index) => (
               <CardMovement
