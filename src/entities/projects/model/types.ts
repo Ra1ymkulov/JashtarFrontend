@@ -3,15 +3,16 @@ export interface Projects {
   title: string;
   image: string;
   full_text: string;
+  short_text: string;
   goals_title: string;
   goals: Goals[];
   gallery_images: GoalsImage[];
 }
-interface Goals {
+export interface Goals {
   id: number;
   text: string;
 }
-interface GoalsImage {
+export interface GoalsImage {
   id: number;
   image: string;
   order: number;

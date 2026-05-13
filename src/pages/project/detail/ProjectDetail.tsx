@@ -1,40 +1,71 @@
 "use client";
 import scss from "./ProjectDetail.module.scss";
 import { useParams } from "next/navigation";
-import { projects } from "../Staticdata/projects";
 import { NavPanel } from "@/src/shared/ui/navpanel/NavPanel";
-import { Name } from "./sections/Name/Name";
-import { Aim } from "./sections/Aims/Aim";
-import { Gallery } from "./sections/Gallary/Gallary";
+import { useProjectsDetail } from "@/src/entities/projects";
+import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
+import { Loading } from "@/src/shared/ui/loading/Loading";
 
 const ProjectDetail = () => {
   const params = useParams();
   const id = Number(params?.id);
-  const project = projects.find((item) => item.id === id);
-  if (!project) {
-    return;
-  }
+  const { data: project, isError, error, isLoading } = useProjectsDetail(id);
+  if (isLoading) return <Loading />;
+  if (isError) return <div>{error.message}</div>;
+  const goals = project?.goals ?? [];
+  const mid = Math.ceil(goals.length / 2);
+  const columns = [project?.goals.slice(0, mid), project?.goals.slice(mid)];
+  console.log(project);
+
   return (
-    <div className={scss.projectDetail}>
+    <>
       <NavPanel
         items={[
           { label: "Проекты", href: "/projects" },
-          { label: `Проект ${project?.title}` },
+          { label: `${project?.title}` },
         ]}
       />
-      <div className="container">
-        <div className={scss.ProjectDetail}>
-          <Name
-            title={project?.title}
-            fullText={project?.full_text}
-            image={project?.image}
-          />
-          <Aim title={project?.goals_title} goals={project?.goals} />
-          <Gallery images={project?.gallery_images} />
+      <div className={scss.projectDetail}>
+        <div className="container">
+          <div className={scss.projectDetail}>
+            <SectionHeader
+              layout="center"
+              title={project?.title}
+              description={project?.full_text}
+            />
+            {!project?.image ? (
+              <img className={scss.banner} src={project?.image} alt="" />
+            ) : (
+              <img
+                className={scss.defaultImage}
+                src="/assets/images/default-image.png"
+                alt=""
+              />
+            )}
+            <SectionHeader layout="center" title={project?.goals_title} />
+            <div className={scss.goalsContent}>
+              {columns.map((column, i) => (
+                <ul key={i}>
+                  {column?.map((items) => (
+                    <li key={items.id}>{items.text}</li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+            <div className={scss.galleryContent}>
+              {project?.gallery_images.map((image, index) => (
+                <img
+                  className={`${scss.galleryImage} ${scss[`p${index + 1}`]}`}
+                  key={image.id}
+                  src={"/assets/images/default-image.png"}
+                  alt=""
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-      ;
-    </div>
+    </>
   );
 };
 

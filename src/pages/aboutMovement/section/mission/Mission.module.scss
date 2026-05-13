@@ -24,6 +24,7 @@
       width: 100%;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: minmax(200px, 300px) minmax(200px, 300px);
       gap: 15px;
       div {
         width: 100%;

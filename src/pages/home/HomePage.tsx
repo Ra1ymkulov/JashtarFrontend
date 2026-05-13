@@ -1,14 +1,15 @@
 "use client";
 import type { FC } from "react";
 import Banner from "./sections/banner/Banner";
-import Events from "../../app/(site)/events/sections/EventsSection/EventsSection";
+
 import Movement from "./sections/movement/Movement";
+import EventsSections from "./sections/events/EventsSections";
 export const HomePage: FC = () => {
   return (
     <>
       <Banner />
       <Movement />
-      <Events />
+      <EventsSections />
     </>
   );
 };

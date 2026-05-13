@@ -1,5 +1,6 @@
 import { LawCard } from "@/src/shared/ui/cardLaw/LawCard";
 import scss from "./Law.module.scss";
+import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
 
 const Law = () => {
   const data = [
@@ -32,7 +33,7 @@ const Law = () => {
     <div className={scss.lawSection}>
       <div className="container">
         <div className={scss.content}>
-          <h1 className={scss.title}>Законодательная база</h1>
+          <SectionHeader layout="center" title="Законодательная база" />
           <div className={scss.law}>
             {data.map((law, index) => (
               <LawCard

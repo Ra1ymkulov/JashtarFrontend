@@ -7,7 +7,7 @@ export interface HomeSecton {
   about_movent: string;
   about_blocks: AboutBlocks[];
 }
-interface BannerList {
+export interface BannerList {
   id: number;
   title: string;
   description: string;
@@ -15,16 +15,16 @@ interface BannerList {
   cta_link: string;
   images: Images[];
 }
-interface Images {
+export interface Images {
   id: number;
   image: string;
 }
-interface AboutBlocks {
+export interface AboutBlocks {
   id: number;
   description: string;
   advantages: Advantages[];
 }
-interface Advantages {
+export interface Advantages {
   id: number;
   title: string;
   text: string;

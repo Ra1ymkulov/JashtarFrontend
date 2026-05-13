@@ -1,13 +1,5 @@
-import UpcomingEvents from "./sections/UpcomingEvents/UpcomingEvents";
-import EventsArchive from "./sections/EventsArchive/EventsArchive";
+import Events from "@/src/pages/events/Events";
 
-const EventsPage = () => {
-  return (
-    <>
-      <UpcomingEvents />
-      <EventsArchive showAll={false} />
-    </>
-  );
-};
+const page = () => <Events />;
 
-export default EventsPage;
+export default page;
