@@ -1,17 +1,17 @@
-import scss from "./Media.modul.scss";
 import { NavPanel } from "@/src/shared/ui/navpanel/NavPanel";
+import scss from "./MediaDetail.module.scss";
 
-const Media = () => {
+const MediaDetail = () => {
   return (
     <>
       <NavPanel items={[{ label: "Медиа", href: "/media" }]} />
-      <section>
+      <section className={scss.mediaDetail}>
         <div className="container">
-          <p>Media</p>
+          <p>Media Detail</p>
         </div>
       </section>
     </>
   );
 };
 
-export default Media;
+export default MediaDetail;
