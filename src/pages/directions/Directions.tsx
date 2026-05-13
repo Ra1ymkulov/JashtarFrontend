@@ -3,7 +3,7 @@
 import scss from "./Directions.module.scss";
 
 import { useState } from "react";
-import { CardActivity } from "@/src/shared/ui/cardActivity/CardActivity";
+import { CardActivity } from "@/src/shared/ui/сardActivity/CardActivity";
 import { NavPanel } from "@/src/shared/ui/navpanel/NavPanel";
 import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
 import { useDirectionPage } from "@/src/entities/directions";

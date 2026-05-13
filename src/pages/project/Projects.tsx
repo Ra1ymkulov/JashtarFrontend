@@ -1,14 +1,13 @@
 "use client";
 import { NavPanel } from "@/src/shared/ui/navpanel/NavPanel";
 import scss from "./Projects.module.scss";
-import { CardProject } from "@/src/shared/ui/CardProject/CardProject";
+import { CardProject } from "@/src/shared/ui/сardProject/CardProject";
 import { useProjectsPage } from "@/src/entities/projects";
 import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
 
 const Projects = () => {
   const { data } = useProjectsPage();
   const projects = data?.[0];
-  console.log(projects?.project_items);
 
   return (
     <>

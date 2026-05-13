@@ -1,5 +1,5 @@
 "use client";
-import { CardActivity } from "@/src/shared/ui/cardActivity/CardActivity";
+import { CardActivity } from "@/src/shared/ui/сardActivity/CardActivity";
 import { NavPanel } from "@/src/shared/ui/navpanel/NavPanel";
 
 const data = [

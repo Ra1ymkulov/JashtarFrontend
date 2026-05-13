@@ -15,8 +15,6 @@ const ProjectDetail = () => {
   const goals = project?.goals ?? [];
   const mid = Math.ceil(goals.length / 2);
   const columns = [project?.goals.slice(0, mid), project?.goals.slice(mid)];
-  console.log(project);
-
   return (
     <>
       <NavPanel
