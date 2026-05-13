@@ -1,24 +1,29 @@
 "use client";
 import { NavPanel } from "@/src/shared/ui/navpanel/NavPanel";
-import { projects } from "./Staticdata/projects";
 import scss from "./Projects.module.scss";
-import { CardProject } from "@/src/shared/ui/cardProject/CardProject";
+import { CardProject } from "@/src/shared/ui/CardProject/CardProject";
+import { useProjectsPage } from "@/src/entities/projects";
+import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
 
 const Projects = () => {
+  const { data } = useProjectsPage();
+  const projects = data?.[0];
+  console.log(projects?.project_items);
+
   return (
     <>
       <NavPanel items={[{ label: "Проекты", href: "/projects" }]} />
       <section>
         <div className="container">
-          <h1 className={scss.title}>Проекты</h1>
+          <SectionHeader layout="center" title={projects?.title} />
           <div className={scss.container}>
-            {projects.map((item, index) => (
+            {projects?.project_items.map((item, index) => (
               <CardProject
                 key={index}
                 id={item.id}
                 image={item.image}
                 title={item.title}
-                description={item.description}
+                description={item.short_text}
               />
             ))}
           </div>

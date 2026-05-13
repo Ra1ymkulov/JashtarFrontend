@@ -1,5 +1,5 @@
 export type { ProjectsSection, Projects } from "./model/types";
-export { useNewsDetail } from "./hooks/useProjectsDetail";
+export { useProjectsDetail } from "./hooks/useProjectsDetail";
 export { useProjectsPage } from "./hooks/useProjectsPage";
 export {
   getProjectsDetail,

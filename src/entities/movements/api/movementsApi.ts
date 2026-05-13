@@ -11,16 +11,18 @@ export const movementKeys = {
   missionsMovements: () => [...movementKeys.all, "missionsMovements"] as const,
   leaderShip: () => [...movementKeys.all, "leaderShip"] as const,
 };
-export const getAboutTheMovements =
-  async (): Promise<AboutTheMovementSections> => {
-    const { data } = await axiosInstance.get("/movement/movement/");
-    return data;
-  };
-export const getMissionsMovements =
-  async (): Promise<MissionsMovementsSections> => {
-    const { data } = await axiosInstance.get("/movement/missions/");
-    return data;
-  };
+export const getAboutTheMovements = async (): Promise<
+  AboutTheMovementSections[]
+> => {
+  const { data } = await axiosInstance.get("/movement/movement/");
+  return data;
+};
+export const getMissionsMovements = async (): Promise<
+  MissionsMovementsSections[]
+> => {
+  const { data } = await axiosInstance.get("/movement/missions/");
+  return data;
+};
 export const getLeaderShip = async (): Promise<LeaderShip> => {
   const { data } = await axiosInstance.get("/movement/leadership/");
   return data;

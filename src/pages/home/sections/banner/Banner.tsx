@@ -7,41 +7,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { useRef } from "react";
+import { useHomePage } from "@/src/entities/home";
+import { Loading } from "@/src/shared/ui/loading/Loading";
 
 const Banner = () => {
-  const data = [
-    {
-      id: 1,
-      title: "Banner 1",
-      description:
-        "Предварительное внесло мартышкалный. Классно-качественная прототип будущего просьба в резво проекции поможет.",
-      cta_text: "Вступить в движение",
-      cta_link: "/movement",
-      images: "/Rectangle 8.svg",
-    },
-    {
-      id: 2,
-      title: "Banner 2",
-      description:
-        "Предварительное внесло мартышкалный. Классно-качественная прототип будущего просьба в резво проекции поможет.",
-      cta_text: "Вступить в движение",
-      cta_link: "/movement",
-      images: "/Rectangle 8.svg",
-    },
-    {
-      id: 3,
-      title: "Banner 3",
-      description:
-        "Предварительное внесло мартышкалный. Классно-качественная прототип будущего просьба в резво проекции поможет.",
-      cta_text: "Вступить в движение",
-      cta_link: "/movement",
-      images: "/Rectangle 8.svg",
-    },
-  ];
-
   const buttonPrev = useRef<HTMLButtonElement>(null);
   const buttonNext = useRef<HTMLButtonElement>(null);
-
+  const { data: home, isLoading, isError, error } = useHomePage();
+  if (isLoading) return <Loading />;
+  if (isError) return <div>{error.message}</div>;
   return (
     <section className={scss.bannerSection}>
       <div className={scss.containerBanner}>
@@ -68,11 +42,11 @@ const Banner = () => {
             modules={[Navigation, Pagination, Mousewheel, Keyboard]}
             className={scss.bannerSwiper}
           >
-            {data.map((item) => (
+            {home?.banners_list.map((item) => (
               <SwiperSlide key={item.id}>
                 <div className={scss.banner}>
                   <img
-                    src={item.images}
+                    src={item.images[0].image}
                     alt={item.title}
                     className={scss.bannerBg}
                     loading="lazy"

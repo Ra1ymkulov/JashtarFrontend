@@ -2,7 +2,7 @@ import scss from "./SectionHeader.module.scss";
 
 interface ISectionHeaderProps {
   onButtonClick?: () => void;
-  title: string;
+  title?: string;
   buttonText?: string;
   description?: string;
   layout: "center" | "between";

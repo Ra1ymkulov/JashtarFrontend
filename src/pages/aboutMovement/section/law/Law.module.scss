@@ -5,17 +5,17 @@
     flex-direction: column;
     gap: 20px;
     text-align: center;
-    .title {
-      font-size: 36px;
-      font-weight: 500;
-    }
     .law {
       width: 100%;
       padding-block: 10px;
       display: flex;
       align-items: center;
-      overflow-x: scroll;
       gap: 24px;
+      overflow-x: scroll;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }

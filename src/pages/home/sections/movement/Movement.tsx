@@ -2,52 +2,29 @@
 import { CardMovement } from "@/src/shared/ui/cardMovement/CardMovement";
 import scss from "./Movement.module.scss";
 import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
+import { useHomePage } from "@/src/entities/home";
+import { Loading } from "@/src/shared/ui/loading/Loading";
 
 const Movement = () => {
-  const data = [
-    {
-      id: 1,
-      title: "Преимущество",
-      description:
-        "Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности",
-    },
-    {
-      id: 2,
-      title: "Преимущество",
-      description:
-        "Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности",
-    },
-    {
-      id: 3,
-      title: "Преимущество",
-      description:
-        "Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности",
-    },
-    {
-      id: 4,
-      title: "Преимущество",
-      description:
-        "Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности",
-    },
-  ];
+  const { data: home, isLoading, isError, error } = useHomePage();
+  if (isLoading) return <Loading />;
+  if (isError) return <div>{error.message}</div>;
   return (
     <div className={scss.movement}>
       <div className="container">
         <div className={scss.content}>
           <SectionHeader
-            title="О движении"
-            description="Внезапно, ключевые особенности структуры проекта являются только
-            методом политического участия и в равной степени предоставлены сами
-            себе."
+            title={home?.about_movent}
+            description={home?.about_blocks[0].description}
             layout="center"
             descriptionWidth="small"
           />
           <div className={scss.cardContent}>
-            {data.map((movement, index) => (
+            {home?.about_blocks[0].advantages.map((movement, index) => (
               <CardMovement
                 key={index}
                 title={movement.title}
-                description={movement.description}
+                description={movement.text}
               />
             ))}
           </div>

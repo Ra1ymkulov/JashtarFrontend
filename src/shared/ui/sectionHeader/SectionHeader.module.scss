@@ -1,5 +1,4 @@
 .sectionHeader {
-  padding-block: 20px;
   .center {
     display: flex;
     flex-direction: column;
@@ -25,7 +24,7 @@
     font-size: clamp(
       14px,
       calc(14px + (20 - 14) * ((100vw - 270px) / (1000 - 270))),
-      20px
+      18px
     );
     font-weight: 400;
     color: #111;
