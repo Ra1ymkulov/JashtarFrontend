@@ -1,7 +1,7 @@
 const DEFAULT_IMAGE = "/assets/images/default-image.png";
 
 export const encodeUrl = (
-  url: string,
+  url: string | undefined,
   defaultImage = DEFAULT_IMAGE
 ): string => {
   if (!url) return defaultImage;

@@ -4,11 +4,12 @@ import scss from "./Movement.module.scss";
 import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
 import { useHomePage } from "@/src/entities/home";
 import { Loading } from "@/src/shared/ui/loading/Loading";
+import { SectionError } from "@/src/shared/ui/sectionError/SectionError";
 
 const Movement = () => {
   const { data: home, isLoading, isError, error } = useHomePage();
   if (isLoading) return <Loading />;
-  if (isError) return <div>{error.message}</div>;
+  if (isError) return <SectionError message={error.message} />;
   return (
     <div className={scss.movement}>
       <div className="container">

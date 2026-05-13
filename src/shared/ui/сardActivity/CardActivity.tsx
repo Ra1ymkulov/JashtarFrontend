@@ -5,6 +5,7 @@ import ArrowUp from "./../../../../public/assets/icons/dropUp.svg";
 import Instagram from "./../../../../public/assets/icons/instagram.svg";
 import Telegram from "./../../../../public/assets/icons/telegram.svg";
 import ArrowRight from "./../../../../public/assets/icons/Arrow.svg";
+import { encodeUrl, onImageError } from "../../lib";
 
 interface cardProps {
   image: string;
@@ -35,7 +36,7 @@ export const CardActivity = ({
     >
       {(course || !isOpen) && image && (
         <div className={scss.imageWrapper}>
-          <Image src={image} alt="" fill />
+          <Image src={encodeUrl(image)} onError={onImageError} alt="" fill />
         </div>
       )}
 

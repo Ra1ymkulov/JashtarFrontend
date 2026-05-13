@@ -10,14 +10,14 @@ import { useRef } from "react";
 import { useHomePage } from "@/src/entities/home";
 import { Loading } from "@/src/shared/ui/loading/Loading";
 import { onImageError } from "@/src/shared/lib";
+import { SectionError } from "@/src/shared/ui/sectionError/SectionError";
 
 const Banner = () => {
   const buttonPrev = useRef<HTMLButtonElement>(null);
   const buttonNext = useRef<HTMLButtonElement>(null);
   const { data: home, isLoading, isError, error } = useHomePage();
   if (isLoading) return <Loading />;
-  if (isError) return <div>{error.message}</div>;
-  console.log(home);
+  if (isError) return <SectionError message={error.message} />;
 
   return (
     <section className={scss.bannerSection}>

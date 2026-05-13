@@ -1,0 +1,19 @@
+.errorContent {
+  width: 100%;
+  min-height: 600px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .errorBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

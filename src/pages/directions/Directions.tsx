@@ -1,24 +1,21 @@
 "use client";
-
 import scss from "./Directions.module.scss";
-
 import { useState } from "react";
 import { CardActivity } from "@/src/shared/ui/сardActivity/CardActivity";
 import { NavPanel } from "@/src/shared/ui/navpanel/NavPanel";
 import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
 import { useDirectionPage } from "@/src/entities/directions";
 import { Loading } from "@/src/shared/ui/loading/Loading";
+import { SectionError } from "@/src/shared/ui/sectionError/SectionError";
 
 export default function DirectionsPage() {
   const [openId, setOpenId] = useState<number | null>(null);
-
   const toggleCard = (id: number) => {
     setOpenId((prev) => (prev === id ? null : id));
   };
   const { data, isError, isLoading, error } = useDirectionPage();
-
   if (isLoading) return <Loading />;
-  if (isError) return <div>{error.message}</div>;
+  if (isError) return <SectionError message={error.message} />;
 
   return (
     <>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import scss from "./CardProject.module.scss";
 import { Button } from "../button/Button";
 import { useRouter } from "next/navigation";
+import { encodeUrl, onImageError } from "../../lib";
 
 interface CardProps {
   id: number;
@@ -13,13 +14,14 @@ interface CardProps {
 
 export const CardProject = ({ id, image, title, description }: CardProps) => {
   const router = useRouter();
+
   return (
     <div className={scss.card__container}>
       <div className={scss.ImageWrapper}>
-        <Image
-          src={"/assets/images/Project/ProjectName.png"}
+        <img
+          src={encodeUrl(image)}
+          onError={onImageError}
           alt="card Image"
-          fill
           className={scss.image}
         />
       </div>

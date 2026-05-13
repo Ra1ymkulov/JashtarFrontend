@@ -2,30 +2,13 @@ import { useAboutTheMovements } from "@/src/entities/movements";
 import scss from "./AboutMovement.module.scss";
 import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
 import { Loading } from "@/src/shared/ui/loading/Loading";
+import { encodeUrl, onImageError } from "@/src/shared/lib";
+import { SectionError } from "@/src/shared/ui/sectionError/SectionError";
 
 const AboutMovement = () => {
-  // const data = {
-  //   id: 1,
-  //   title: "О движении",
-  //   text: "В целях реализации Закона КР «О молодежи» постановлением Кабинета Министров от 14 марта 2024 года №108 утверждено Положение о молодежном движении КР, определяющее его правовой статус, цели и порядок деятельности. Движение — добровольная, самоуправляемая некоммерческая организация. Идея создания предложена на форуме «Кыялымдагы Кыргызстан» (2023, Бишкек) и поддержана Президентом.",
-  //   movement_items: [
-  //     {
-  //       id: 1,
-  //       image: "/Rectangle 8.svg",
-  //       order: 1,
-  //       is_active: false,
-  //     },
-  //     {
-  //       id: 2,
-  //       image: "/Rectangle 8.svg",
-  //       order: 2,
-  //       is_active: false,
-  //     },
-  //   ],
-  // };
   const { data, isError, isLoading, error } = useAboutTheMovements();
   if (isLoading) return <Loading />;
-  if (isError) return <div>{error.message}</div>;
+  if (isError) return <SectionError message={error.message} />;
   const about = data?.[0];
   return (
     <section className={scss.movement}>
@@ -38,7 +21,11 @@ const AboutMovement = () => {
           />
           <div className={scss.gallery}>
             {about?.movement_items.map((image, index) => (
-              <img key={index} src={image.image} />
+              <img
+                key={index}
+                src={encodeUrl(image.image)}
+                onError={onImageError}
+              />
             ))}
           </div>
         </div>

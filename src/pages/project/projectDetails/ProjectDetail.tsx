@@ -5,13 +5,15 @@ import { NavPanel } from "@/src/shared/ui/navpanel/NavPanel";
 import { useProjectsDetail } from "@/src/entities/projects";
 import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
 import { Loading } from "@/src/shared/ui/loading/Loading";
+import { SectionError } from "@/src/shared/ui/sectionError/SectionError";
+import { encodeUrl, onImageError } from "@/src/shared/lib";
 
 const ProjectDetail = () => {
   const params = useParams();
   const id = Number(params?.id);
   const { data: project, isError, error, isLoading } = useProjectsDetail(id);
   if (isLoading) return <Loading />;
-  if (isError) return <div>{error.message}</div>;
+  if (isError) return <SectionError message={error.message} />;
   const goals = project?.goals ?? [];
   const mid = Math.ceil(goals.length / 2);
   const columns = [project?.goals.slice(0, mid), project?.goals.slice(mid)];
@@ -31,15 +33,12 @@ const ProjectDetail = () => {
               title={project?.title}
               description={project?.full_text}
             />
-            {!project?.image ? (
-              <img className={scss.banner} src={project?.image} alt="" />
-            ) : (
-              <img
-                className={scss.defaultImage}
-                src="/assets/images/default-image.png"
-                alt=""
-              />
-            )}
+            <img
+              className={scss.banner}
+              src={encodeUrl(project?.image)}
+              onError={onImageError}
+              alt=""
+            />
             <SectionHeader layout="center" title={project?.goals_title} />
             <div className={scss.goalsContent}>
               {columns.map((column, i) => (
@@ -55,7 +54,8 @@ const ProjectDetail = () => {
                 <img
                   className={`${scss.galleryImage} ${scss[`p${index + 1}`]}`}
                   key={image.id}
-                  src={"/assets/images/default-image.png"}
+                  src={encodeUrl(image.image)}
+                  onError={onImageError}
                   alt=""
                 />
               ))}

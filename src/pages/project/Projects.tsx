@@ -4,9 +4,13 @@ import scss from "./Projects.module.scss";
 import { CardProject } from "@/src/shared/ui/сardProject/CardProject";
 import { useProjectsPage } from "@/src/entities/projects";
 import SectionHeader from "@/src/shared/ui/sectionHeader/SectionHeader";
+import { Loading } from "@/src/shared/ui/loading/Loading";
+import { SectionError } from "@/src/shared/ui/sectionError/SectionError";
 
 const Projects = () => {
-  const { data } = useProjectsPage();
+  const { data, error, isError, isLoading } = useProjectsPage();
+  if (isLoading) return <Loading />;
+  if (isError) return <SectionError message={error.message} />;
   const projects = data?.[0];
 
   return (
@@ -18,7 +22,7 @@ const Projects = () => {
           <div className={scss.container}>
             {projects?.project_items.map((item, index) => (
               <CardProject
-                key={index}
+                key={item.id}
                 id={item.id}
                 image={item.image}
                 title={item.title}

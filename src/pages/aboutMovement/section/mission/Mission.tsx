@@ -1,11 +1,13 @@
 import { useMissionsMovements } from "@/src/entities/movements";
 import scss from "./Mission.module.scss";
 import { Loading } from "@/src/shared/ui/loading/Loading";
+import { SectionError } from "@/src/shared/ui/sectionError/SectionError";
+import { encodeUrl, onImageError } from "@/src/shared/lib";
 
 const Mission = () => {
   const { data, isError, isLoading, error } = useMissionsMovements();
   if (isLoading) return <Loading />;
-  if (isError) return <div>{error.message}</div>;
+  if (isError) return <SectionError message={error.message} />;
   const about = data?.[0];
 
   return (
@@ -21,7 +23,8 @@ const Mission = () => {
               <div key={index} className={scss[`p${index + 1}`]}>
                 <img
                   key={index}
-                  src={img.image}
+                  onError={onImageError}
+                  src={encodeUrl(img.image)}
                   alt={`i${index + 1}`}
                   className={scss[`p${index + 1}`]}
                 />
